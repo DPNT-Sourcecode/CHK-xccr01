@@ -61,7 +61,7 @@ class TestSum(unittest.TestCase):
         assert checkout_solution.checkout("H") == 10
 
     def test_one_of_eachK(self):
-        assert checkout_solution.checkout("K") == 80
+        assert checkout_solution.checkout("KK") == 150
 
     def test_one_of_eachM(self):
         assert checkout_solution.checkout("M") == 15
@@ -77,3 +77,4 @@ class TestSum(unittest.TestCase):
 
     def test_one_of_eachV(self):
         assert checkout_solution.checkout("V") == 50
+
