@@ -3,6 +3,11 @@ import re
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
+    if type(skus) is not str:
+        return -1
+    formatted_skus = skus.upper()
+    if re.search("[^ABCD]", formatted_skus) :
+        return -1
     total = 0
     A_cost = 50
     A_deal = 130
@@ -38,3 +43,4 @@ def checkout(skus):
 
     total = A_total + B_total + len(C_list)*C_cost + len(D_list)*D_cost
     return total
+
