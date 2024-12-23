@@ -8,11 +8,6 @@ def checkout(skus):
     if re.search("[^ABCDEF]", skus) :
         return -1
     total = 0
-    A_cost = 50
-    A_deal_3 = 130
-    A_deal_5 = 200
-    B_cost = 30
-    B_deal = 45
     C_cost = 20
     D_cost = 15
     E_cost = 40
@@ -118,3 +113,4 @@ def __calculate_F(F_items):
         return F_total
 
     return F_total
+
