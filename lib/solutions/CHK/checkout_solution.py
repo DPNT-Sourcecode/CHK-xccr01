@@ -48,8 +48,11 @@ def checkout(skus):
     
 
     total += __calculate_multi_deal(len(re.findall("A", skus)), 50, 3, 130, 5, 200)
-    total += __calculate_free_item(len(re.findall("B", skus)), len(re.findall("E", skus)))
-    # total += __calculate_()
+    total += __calculate_bsogsof(len(re.findall("B", skus)), len(re.findall("E", skus)))
+    total += len(re.findall("C", skus)) * 20
+    total += len(re.findall("D", skus)) * 15
+    total += len(re.findall("E", skus)) * 40
+    total += __calculate_simple_deal(len(re.findall("F", skus)), 20, 3, 20)
     total += __calculate_multi_deal(len(re.findall("H", skus)), 10, 5, 45, 10, 80) #+ __calculate_free_item(B_items, E_items) + __calculate_F(F_items, 10, )
     return total
 
@@ -82,7 +85,6 @@ def __calculate_bsogsof(bought_items, bought_items_cost, bought_items_deal, free
 
     if bought_items>= bought_items_deal:
         free_items = free_items - bought_items//bought_items_deal
-    else:
 
     if free_items_deal == 0:
         total = free_items * free_items_cost
@@ -105,5 +107,6 @@ def __calculate_simple_deal(items, cost, deal, deal_cost):
         return total
 
     return total
+
 
 
