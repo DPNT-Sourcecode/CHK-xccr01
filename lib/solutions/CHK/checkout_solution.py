@@ -21,12 +21,12 @@ def checkout(skus):
     A_items = len(A_list)
     if A_items == 1:
         A_total = A_cost
-    if A_items == 2:
+    elif A_items == 2:
         A_total = A_cost * 2
     elif A_items%3 == 0:
         A_total = A_items/3 * A_deal
     else:
-        A_total = (A_items - A_items%3)/3 * A_deal + A_cost * A_items%3
+        A_total = ((A_items - A_items%3)/3 * A_deal) +(A_cost * A_items%3)
 
 
     # calculate total cost of B including the special offers
@@ -37,7 +37,8 @@ def checkout(skus):
         B_total = (B_items - 1)/2 * B_deal + B_cost
 
     total = A_total + B_total + len(C_list)*C_cost + len(D_list)*D_cost
-    return total
+    return A_total
+
 
 
 
