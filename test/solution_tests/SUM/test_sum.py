@@ -13,7 +13,3 @@ class TestSum():
 
     def test_type_checking(self):
         assert sum_solution.comput
-
-
-
-
