@@ -25,9 +25,5 @@ def checkout(skus):
     else:
         B_total = (len(B_list) - 1)/2 * B_deal + B_cost
 
-    total = len(A_list)*A_cost + B_total + len(C_list)*C_cost + len(D_list)*D_cost
+    total = len(A_list)#*A_cost + B_total + len(C_list)*C_cost + len(D_list)*D_cost
     return total
-
-
-
-
