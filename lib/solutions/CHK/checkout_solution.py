@@ -73,8 +73,8 @@ def calculate_A(A_items):
             A_total = A_items/5 * A_deal_5
         elif A_items%5 == 1 or 2:
             A_total = ((A_items - A_items%5)/5 * A_deal_5) +(A_items%5 * A_cost)
-        elif A_items%5%3 == 0:
-            A_total = banana #((A_items - 3)/5 * A_deal_5) + A_deal_3
+        elif A_items%5 == 3:
+            A_total = ((A_items - 3)/5 * A_deal_5) + A_deal_3
         elif A_items%5 == 4:
             A_total = ((A_items - 4)/5 * A_deal_5) + A_deal_3 + A_cost
         else:
