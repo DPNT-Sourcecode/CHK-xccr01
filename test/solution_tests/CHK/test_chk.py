@@ -77,4 +77,3 @@ class TestSum(unittest.TestCase):
 
     def test_one_of_eachV(self):
         assert checkout_solution.checkout("V") == 50
-

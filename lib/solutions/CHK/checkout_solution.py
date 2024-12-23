@@ -121,6 +121,3 @@ def __calculate_simple_deal(items, cost, deal, deal_cost):
 
     return total
 
-
-
-
