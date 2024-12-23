@@ -13,13 +13,14 @@ class TestSum(unittest.TestCase):
         assert checkout_solution.checkout("ABCDAB") == 180
     
     def test_checkout_special_offer_A (self ):
-        assert checkout_solution.checkout("ABCDABAA") == 210
+        assert checkout_solution.checkout("ABCDABAA") == 260
     
     # def test_checkout_type(self):
     #     assert checkout_solution.checkout(True) == -1
 
     # def test_checkout_bad_input(self):
     #     assert checkout_solution.checkout("AABZ") == -1
+
 
 
 
