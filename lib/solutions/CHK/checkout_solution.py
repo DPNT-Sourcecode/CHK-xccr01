@@ -97,7 +97,7 @@ def __calculate_group_deal(skus):
     X_number = 0
     Z_number = 0
 
-    group_discount_items_total = len(re.findall("[STXYZ]", skus)).sort()
+    group_discount_items_total = re.findall("[STXYZ]", skus).sort()
     return group_discount_items_total
 
     # group_discount_items_21 = len(re.findall("Z", skus))
@@ -119,4 +119,5 @@ def __calculate_group_deal(skus):
         
             
     
+
 
