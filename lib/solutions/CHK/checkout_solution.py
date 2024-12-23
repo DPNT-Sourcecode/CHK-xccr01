@@ -38,10 +38,3 @@ def checkout(skus):
 
     total = A_total + B_total + len(C_list)*C_cost + len(D_list)*D_cost
     return total
-
-
-
-
-
-
-
