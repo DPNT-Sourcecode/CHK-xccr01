@@ -111,7 +111,7 @@ def __calculate_simple_deal(items, cost, deal, deal_cost):
     total = 0
     if items < deal or deal == 0:
         total = items * cost
-    if items >= deal:
+    elif items >= deal:
         if items%deal == 0:
             total = items/deal * deal_cost
         else:
@@ -120,4 +120,5 @@ def __calculate_simple_deal(items, cost, deal, deal_cost):
         return total
 
     return total
+
 
