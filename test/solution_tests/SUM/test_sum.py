@@ -32,7 +32,3 @@ class TestSum(unittest.TestCase):
     def test_y_type_sum(self):
         with self.assertRaises(TypeError):
             sum_solution.compute(1, True)
-
-
-
-

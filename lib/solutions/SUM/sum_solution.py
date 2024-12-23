@@ -10,7 +10,3 @@ def compute(x, y):
         raise TypeError("x must be an integer")
     return x + y
     
-
-
-
-
