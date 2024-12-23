@@ -13,12 +13,21 @@ class TestSum(unittest.TestCase):
         with self.assertRaises(ValueError):
             sum_solution.compute(-5, -2)
 
+    def test_y_neg_sum(self):
+        with self.assertRaises(ValueError):
+            sum_solution.compute(5, -2)
+
     def test_large_sum(self):
         with self.assertRaises(ValueError):
             sum_solution.compute(1001, 500)
+
+    def test_y_large_sum(self):
+        with self.assertRaises(ValueError):
+            sum_solution.compute(1, 500)
     
     def test_type_sum(self):
         with self.assertRaises(TypeError):
             sum_solution.compute('a', True)
+
 
 
