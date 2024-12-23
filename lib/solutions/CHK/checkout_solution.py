@@ -71,7 +71,7 @@ def calculate_A(A_items):
     elif A_items >=5 :
         if A_items%5 == 0 :
             A_total = A_items/5 * A_deal_5
-        elif A_items%5 == 1 or 2:
+        elif A_items%5 < 3:
             A_total = ((A_items - A_items%5)/5 * A_deal_5) +(A_items%5 * A_cost)
         elif A_items%5 == 3:
             A_total = ((A_items - 3)/5 * A_deal_5) + A_deal_3
@@ -97,3 +97,4 @@ def calculate_B(B_items, E_items):
         B_total = (B_items - 1)/2 * B_deal + B_cost
     
     return B_total
+
