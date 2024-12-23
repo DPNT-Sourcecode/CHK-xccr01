@@ -47,7 +47,8 @@ def checkout(skus):
     
     
 
-    total += __calculate_multi_deal(len(re.findall("A", skus)), 50, 3, 130, 5, 200) #+ __calculate_free_item(B_items, E_items) + __calculate_F(F_items, 10, )
+    total += __calculate_multi_deal(len(re.findall("A", skus)), 50, 3, 130, 5, 200)
+    total += __calculate_multi_deal(len(re.findall("H", skus)), 10, 5, 45, 10, 80) #+ __calculate_free_item(B_items, E_items) + __calculate_F(F_items, 10, )
     return total
 
 def __calculate_multi_deal(items, reg_cost, deal1_ammount, deal1_cost, deal2_ammount, deal2_cost):
@@ -65,8 +66,7 @@ def __calculate_multi_deal(items, reg_cost, deal1_ammount, deal1_cost, deal2_amm
             total = ((items - deal1_ammount)/deal2_ammount * deal2_cost) + deal1_cost
 
         elif items%deal2_ammount > deal1_ammount:
-            total = ((items - items%deal2_ammount)/deal2_ammount * deal2_cost) + deal1_cost + (items%deal2_ammount - deal1_ammount * reg_cost)
-
+            total = ((items - items%deal2_ammount)/deal2_ammount * deal2_cost) + deal1_cost + (items%deal2_ammount - deal1_ammount) * reg_cost
     elif items%deal1_ammount == 0:
         total = deal1_cost
     elif items > deal1_ammount and items < deal2_ammount:
@@ -109,6 +109,7 @@ def __calculate_F(items, cost, deal):
         return F_total
 
     return F_total
+
 
 
 
