@@ -5,7 +5,7 @@ import re
 def checkout(skus):
     if type(skus) is not str or skus.islower():
         return -1
-    if re.search("[^ABCDEF]", skus) :
+    if re.search("[^A-Z]", skus) :
         return -1
     total = 0
     C_cost = 20
@@ -48,37 +48,32 @@ def checkout(skus):
     
 
 
-    total = __calculate_multi_deal(A_items) + __calculate_free_item(B_items, E_items) + __calculate_F(F_items, 10, )
+    total = __calculate_multi_deal(len(re.findall("H", skus))) + __calculate_free_item(B_items, E_items) + __calculate_F(F_items, 10, )
     return total
 
-def __calculate_multi_deal(items):
+def __calculate_multi_deal(items, reg_cost, deal1_ammount, deal1_cost, deal2_ammount, deal2_cost):
     # calculate total cost of A including the special offers
     if items == 0:
         return 0
-    A_cost = 50
-    A_deal_3 = 130
-    A_deal_5 = 200
-    if items == 1:
-        A_total = A_cost
-    elif items == 2:
-        A_total = A_cost * 2
-    elif items == 3:
-        A_total = A_deal_3
-    elif items == 4:
-        A_total = A_deal_3 + A_cost
-    elif items >=5 :
-        if items%5 == 0 :
-            A_total = items/5 * A_deal_5
-        elif items%5 < 3:
-            A_total = ((items - items%5)/5 * A_deal_5) +(items%5 * A_cost)
-        elif items%5 == 3:
-            A_total = ((items - 3)/5 * A_deal_5) + A_deal_3
-        elif items%5 == 4:
-            A_total = ((items - 4)/5 * A_deal_5) + A_deal_3 + A_cost
+    if items < deal1_ammount:
+        total = items * reg_cost
+    elif items%deal1_ammount == 0:
+        total = deal1_cost
+    elif items > deal1_ammount and items < deal2_ammount  :
+        total = (items - items%deal1_ammount)/deal1_ammount + items%deal1_ammount*items 
+    elif items >=deal2_ammount :
+        if items%deal2_ammount == 0 :
+            total = items/5 * deal2_cost
+        elif items%deal2_ammount < deal1_ammount:
+            total = ((items - items%deal2_ammount)/5 * deal2_cost) +(items%deal2_cost * reg_cost_cost)
+        elif items%deal2_ammount == deal1_ammount:
+            total = ((items - deal1_ammount)/deal2_ammount * deal2_cost) + deal1_cost
+        elif items%deal2_ammount > deal1_ammount:
+            total = ((items - items%deal2_ammount)/5 * reg_cost) + deal1_ammount + (items%deal2_cost - deal1_ammount * reg_cost)
     else:
-            A_total = 0
+        total = 0
     
-    return A_total
+    return total
 
 def __calculate_free_item(B_items, E_items):
     if B_items == 0:
