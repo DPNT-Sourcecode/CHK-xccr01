@@ -1,7 +1,8 @@
 
 from solutions.SUM import sum_solution
+import unittest
 
-class TestSum():
+class TestSum(unittest.TestCase):
     def test_sum(self):
         assert sum_solution.compute(1, 2) == 3
 
@@ -13,10 +14,11 @@ class TestSum():
             sum_solution.compute(-5, -2)
 
     def test_large_sum(self):
-        with self.assertRaises():
+        with self.assertRaises(ValueError):
             sum_solution.compute(1001, 500)
     
     def test_type_sum(self):
-        with self.assertRaises():
+        with self.assertRaises(TypeError):
             sum_solution.compute('a', True)
+
 
