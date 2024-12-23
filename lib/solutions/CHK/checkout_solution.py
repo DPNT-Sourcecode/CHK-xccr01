@@ -72,7 +72,7 @@ def __calculate_multi_deal(items, reg_cost, deal1_ammount, deal1_cost, deal2_amm
     elif items%deal1_ammount == 0:
         total = deal1_cost
     elif items > deal1_ammount and items < deal2_ammount:
-        total = (items - items%deal1_ammount)/deal1_ammount + items%deal1_ammount*items 
+        total = ((items - items%deal1_ammount)/deal1_ammount * deal1_cost) + items%deal1_ammount * reg_cost
     else:
         total = 0
     
@@ -111,8 +111,4 @@ def __calculate_F(items, cost, deal):
         return F_total
 
     return F_total
-
-
-
-
 
