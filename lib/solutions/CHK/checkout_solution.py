@@ -83,16 +83,11 @@ def __calculate_multi_deal(items, reg_cost, deal1_ammount, deal1_cost, deal2_amm
 
 def __calculate_bsogsof(bought_items, bought_items_deal, free_items, free_items_cost, free_items_deal, free_items_deal_cost):
 
-    if bought_items>= bought_items_deal:
+    if bought_items >= bought_items_deal:
         free_items = free_items - bought_items//bought_items_deal
 
-    if free_items > free_items_deal:
-        total = free_items * free_items_cost
-    elif free_items%free_items_deal == 0:
-        total = free_items * free_items_deal_cost
-    else:
-        total = free_items * free_items_deal_cost
-    return total
+    __calculate_simple_deal(free_items, free_items_cost, free_items_deal, free_items_deal_cost)
+    return __calculate_simple_deal(free_items, free_items_cost, free_items_deal, free_items_deal_cost)
 
 def __calculate_simple_deal(items, cost, deal, deal_cost):
     total = 0

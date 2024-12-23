@@ -50,3 +50,6 @@ class TestSum(unittest.TestCase):
 
     def test_checkout_H6(self):
         assert checkout_solution.checkout("HHHHHH") == 55
+
+    def test_bsogsof(self):
+        assert checkout_solution.checkout("BBB") == 75
