@@ -5,7 +5,7 @@ import re
 def checkout(skus):
     if type(skus) is not str or skus.islower():
         return -1
-    if re.search("[^ABCDE]", skus) :
+    if re.search("[^ABCDEF]", skus) :
         return -1
     total = 0
     A_cost = 50
@@ -23,6 +23,7 @@ def checkout(skus):
     C_items = len(re.findall("C", skus))
     D_items = len(re.findall("D", skus))
     E_items = len(re.findall("E", skus))
+    F_items = len(re.findall("F", skus))
 
     # calculate total cost of A including the special offers
     # if A_items == 1:
@@ -52,10 +53,10 @@ def checkout(skus):
     
 
 
-    total = calculate_A(A_items) + calculate_B(B_items, E_items) + C_items*C_cost + D_items*D_cost + E_items*E_cost
+    total = __calculate_A(A_items) + __calculate_B(B_items, E_items) + C_items*C_cost + D_items*D_cost + E_items*E_cost + __calculate_F(F_items)
     return total
 
-def calculate_A(A_items):
+def __calculate_A(A_items):
     # calculate total cost of A including the special offers
     if A_items == 0:
         return 0
@@ -84,7 +85,7 @@ def calculate_A(A_items):
     
     return A_total
 
-def calculate_B(B_items, E_items):
+def __calculate_B(B_items, E_items):
     if B_items == 0:
         return 0
     B_cost = 30
@@ -102,7 +103,18 @@ def calculate_B(B_items, E_items):
     
     return B_total
 
-def calculate_F(F_items):
-    if F_items == 0:
-        return 0
-    
+def __calculate_F(F_items):
+    F_total = 0
+    F_cost = 10
+    F_deal = 20
+    if F_items == 1 or F_items == 2:
+        F_total = F_items * F_cost
+    if F_items >= 3:
+        if F_items%3 == 0:
+            F_total = F_items/3 * F_deal
+        else:
+            F_total = ((F_items - F_items%3)/3 *F_deal) + (F_items%3 * F_cost)
+    else:
+        return F_total
+
+    return F_total
