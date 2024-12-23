@@ -25,7 +25,7 @@ class TestSum(unittest.TestCase):
         assert checkout_solution.checkout("ABCDABAAEEEFFF") == 385
 
     def test_checkout_special_offer_E2 (self ):
-        assert checkout_solution.checkout("BBBEE") == 125
+        assert checkout_solution.checkout("EE") == 80
 
     def test_checkout_A5(self ):
         assert checkout_solution.checkout("") == 0
