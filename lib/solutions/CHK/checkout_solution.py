@@ -48,7 +48,7 @@ def checkout(skus):
     
 
     total += __calculate_multi_deal(len(re.findall("A", skus)), 50, 3, 130, 5, 200)
-    # total += __calculate_free_item(len(re.findall("B", skus)), len(re.findall("E", skus)))
+    total += __calculate_free_item(len(re.findall("B", skus)), len(re.findall("E", skus)))
     # total += __calculate_()
     total += __calculate_multi_deal(len(re.findall("H", skus)), 10, 5, 45, 10, 80) #+ __calculate_free_item(B_items, E_items) + __calculate_F(F_items, 10, )
     return total
@@ -78,37 +78,32 @@ def __calculate_multi_deal(items, reg_cost, deal1_ammount, deal1_cost, deal2_amm
     
     return total
 
-def __calculate_free_item(B_items, E_items):
-    if B_items == 0:
-        return 0
-    B_cost = 30
-    B_deal = 45
+def __calculate_bsogsof(bought_items, bought_items_cost, bought_items_deal, free_items, free_items_cost, free_items_deal):
 
-    #calculate effect of E on B
-    if E_items >= 2:
-        E_items//2
-        B_items = B_items - E_items//2
-    # calculate total cost of B including the special offers
-    if B_items%2 == 0:
-        B_total = B_items/2 * B_deal
+    if bought_items>= bought_items_deal:
+        free_items = free_items - bought_items//bought_items_deal
     else:
-        B_total = (B_items - 1)/2 * B_deal + B_cost
-    
-    return B_total
 
-def __calculate_F(items, cost, deal):
+    if free_items_deal == 0:
+        total = free_items * free_items_cost
+    elif free_items%free_items_deal == 0:
+        total = free_items * free_items_deal
+    else:
+        total = free_items * free_items_deal
+    return total
+
+def __calculate_simple_deal(items, cost, deal, deal_cost):
     total = 0
-    cost = 10
-    F_deal = 20
-    if items == 1 or items == 2:
+    if items < deal:
         total = items * cost
-    if items >= 3:
-        if items%3 == 0:
-            F_total = items/3 * deal
+    if items >= deal:
+        if items%deal == 0:
+            total = items/deal * deal_cost
         else:
-            F_total = ((items - items%3)/3 *deal) + (items%3 * cost)
+            total = ((items - items%deal)/deal *deal_cost) + (items%deal * cost)
     else:
-        return F_total
+        return total
 
-    return F_total
+    return total
+
 
