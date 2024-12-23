@@ -97,21 +97,26 @@ def __calculate_group_deal(skus):
     X_number = 0
     Z_number = 0
 
-    group_discount_items_total = len(re.findall("[STXYZ]", skus))
-    group_discount_items_21 = len(re.findall("Z", skus))
-    group_discount_items_20 = len(re.findall("[STY]", skus))
-    group_discount_items_17 = len(re.findall("X", skus))
+    group_discount_items_total = len(re.findall("[STXYZ]", skus)).sort()
+    return group_discount_items_total
 
-    number_of_discounts = group_discount_items_total//3
-    if group_discount_items_total == 0:
-        return 0
-    elif group_discount_items_total < 3:
-        return S_cost * S_number + T_cost * T_number + Y_cost * Y_number + X_cost * X_number + Z_cost * Z_number
-    elif group_discount_items_total%3 == 0:
-        (group_discount_items_total - group_discount_items_total%3)/3 * 45
-    elif group_discount_items_total - group_discount_items_21 > 0:
-        return (group_discount_items_total - group_discount_items_21) + (group_discount_items_total - group_discount_items_total%3)/3 * 45
+    # group_discount_items_21 = len(re.findall("Z", skus))
+    # if  group_discount_items_21 != 0:
+    #     group_discount_items_total - group_discount_items_21
+    # elif len(re.findall("[STY]", skus)) != 0:
+    # elif len(re.findall("X", skus)) != 0:
+
+    # number_of_discounts = group_discount_items_total//3
+    # if group_discount_items_total == 0:
+    #     return 0
+    # elif group_discount_items_total < 3:
+    #     return S_cost * S_number + T_cost * T_number + Y_cost * Y_number + X_cost * X_number + Z_cost * Z_number
+    # elif group_discount_items_total%3 == 0:
+    #     (group_discount_items_total - group_discount_items_total%3)/3 * 45
+    # elif group_discount_items_total - group_discount_items_21 > 0:
+    #     return (group_discount_items_total - group_discount_items_21) + (group_discount_items_total - group_discount_items_total%3)/3 * 45
 
         
             
     
+
