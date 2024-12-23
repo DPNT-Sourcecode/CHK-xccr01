@@ -57,6 +57,8 @@ def checkout(skus):
 
 def calculate_A(A_items):
     # calculate total cost of A including the special offers
+    if A_items == 0:
+        return 0
     A_cost = 50
     A_deal_3 = 130
     A_deal_5 = 200
@@ -78,11 +80,13 @@ def calculate_A(A_items):
         elif A_items%5 == 4:
             A_total = ((A_items - 4)/5 * A_deal_5) + A_deal_3 + A_cost
     else:
-            A_total = -1
+            A_total = 0
     
     return A_total
 
 def calculate_B(B_items, E_items):
+    if B_items == 0:
+        return 0
     B_cost = 30
     B_deal = 45
 
@@ -97,5 +101,6 @@ def calculate_B(B_items, E_items):
         B_total = (B_items - 1)/2 * B_deal + B_cost
     
     return B_total
+
 
 

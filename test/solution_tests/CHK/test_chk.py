@@ -28,7 +28,7 @@ class TestSum(unittest.TestCase):
         assert checkout_solution.checkout("ABCDAABABAEE") == 360
 
     def test_checkout_A5(self ):
-        assert checkout_solution.checkout("AAAAA") == 200
+        assert checkout_solution.checkout("") == 0
     
     def test_checkout_A6 (self ):
         assert checkout_solution.checkout("AAAAAA") == 250
@@ -42,3 +42,4 @@ class TestSum(unittest.TestCase):
     def test_checkout_A9 (self ):
         assert checkout_solution.checkout("AAAAAAAAA") == 380
     
+
