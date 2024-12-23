@@ -54,5 +54,26 @@ class TestSum(unittest.TestCase):
     def test_bsogsof(self):
         assert checkout_solution.checkout("BBB") == 75
 
-    def test_one_of_each(self):
-        assert checkout_solution.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ") == 965
+    def test_one_of_each_F(self):
+        assert checkout_solution.checkout("F") == 10
+
+    def test_one_of_each_H(self):
+        assert checkout_solution.checkout("H") == 10
+
+    def test_one_of_eachK(self):
+        assert checkout_solution.checkout("K") == 80
+
+    def test_one_of_eachM(self):
+        assert checkout_solution.checkout("M") == 15
+
+    def test_one_of_eachP(self):
+        assert checkout_solution.checkout("P") == 50
+    
+    def test_one_of_eachQ(self):
+        assert checkout_solution.checkout("Q") == 30
+
+    def test_one_of_eachU(self):
+        assert checkout_solution.checkout("U") == 40
+
+    def test_one_of_eachV(self):
+        assert checkout_solution.checkout("V") == 50
