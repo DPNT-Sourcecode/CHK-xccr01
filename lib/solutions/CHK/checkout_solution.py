@@ -90,11 +90,29 @@ def __calculate_group_deal(items_bought, skus):
     X_cost = 17
     Y_cost = 20
     Z_cost = 21
+    S_number = 0
+    T_number = 0
+    Y_number = 0
+    X_number = 0
+    Z_number = 0
 
     group_discount_items = len(re.findall("[STXYZ]", skus))
-    if group,group_discount_items < 5:
+    for item in group_discount_items:
+        if item == "S":
+            S_number += 1
+        if item == "T":
+            T_number += 1
+        if item == "Y":
+            Y_number += 1
+        if item == "X":
+            X_number += 1
+        if item == "Z":
+            Z_number += 1
+        
+    if group_discount_items < 5:
         return 
     elif items_bought%5:
         items/bought
             
     
+
