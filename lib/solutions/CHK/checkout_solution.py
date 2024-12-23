@@ -3,10 +3,9 @@ import re
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    if type(skus) is not str:
+    if type(skus) is not str or skus.islower():
         return -1
-    formatted_skus = skus.upper()
-    if re.search("[^ABCD]", formatted_skus) :
+    if re.search("[^ABCD]", skus) :
         return -1
     total = 0
     A_cost = 50
@@ -16,11 +15,11 @@ def checkout(skus):
     C_cost = 20
     D_cost = 15
 
-    formatted_skus = skus.upper()
-    A_list = re.findall("A", formatted_skus)
-    B_list = re.findall("B", formatted_skus)
-    C_list = re.findall("C", formatted_skus)
-    D_list = re.findall("D", formatted_skus)
+    skus = skus.upper()
+    A_list = re.findall("A", skus)
+    B_list = re.findall("B", skus)
+    C_list = re.findall("C", skus)
+    D_list = re.findall("D", skus)
 
     # calculate total cost of A including the special offers
     A_items = len(A_list)
@@ -43,4 +42,5 @@ def checkout(skus):
 
     total = A_total + B_total + len(C_list)*C_cost + len(D_list)*D_cost
     return total
+
 
