@@ -102,5 +102,10 @@ def calculate_B(B_items, E_items):
     
     return B_total
 
+def calculate_F(F_items):
+    if F_items == 0:
+        return 0
+    
+
 
 
