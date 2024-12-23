@@ -48,7 +48,7 @@ def checkout(skus):
     
 
     total += __calculate_multi_deal(len(re.findall("A", skus)), 50, 3, 130, 5, 200)
-    total += __calculate_bsogsof(len(re.findall("B", skus)), len(re.findall("E", skus)))
+    total += __calculate_bsogsof(len(re.findall("E", skus)), 2, len(re.findall("B", skus)), 30, 2, 45)
     total += len(re.findall("C", skus)) * 20
     total += len(re.findall("D", skus)) * 15
     total += len(re.findall("E", skus)) * 40
@@ -81,17 +81,17 @@ def __calculate_multi_deal(items, reg_cost, deal1_ammount, deal1_cost, deal2_amm
     
     return total
 
-def __calculate_bsogsof(bought_items, bought_items_cost, bought_items_deal, free_items, free_items_cost, free_items_deal):
+def __calculate_bsogsof(bought_items, bought_items_deal, free_items, free_items_cost, free_items_deal, free_items_deal_cost):
 
     if bought_items>= bought_items_deal:
         free_items = free_items - bought_items//bought_items_deal
 
-    if free_items_deal == 0:
+    if free_items > free_items_deal:
         total = free_items * free_items_cost
     elif free_items%free_items_deal == 0:
-        total = free_items * free_items_deal
+        total = free_items * free_items_deal_cost
     else:
-        total = free_items * free_items_deal
+        total = free_items * free_items_deal_cost
     return total
 
 def __calculate_simple_deal(items, cost, deal, deal_cost):
@@ -107,6 +107,4 @@ def __calculate_simple_deal(items, cost, deal, deal_cost):
         return total
 
     return total
-
-
 
