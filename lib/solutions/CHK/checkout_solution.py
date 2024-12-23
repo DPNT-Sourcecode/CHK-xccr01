@@ -8,7 +8,7 @@ def checkout(skus):
     if re.search("[^A-Z]", skus) :
         return -1
     
-    
+    total = 0
 
     total += __calculate_multi_deal(len(re.findall("A", skus)), 50, 3, 130, 5, 200)
     total += __calculate_simple_deal(__calculate_bsogsof(len(re.findall("E", skus)), 2, len(re.findall("B", skus))), 30, 2, 45)

@@ -77,3 +77,12 @@ class TestSum(unittest.TestCase):
 
     def test_one_of_eachV(self):
         assert checkout_solution.checkout("V") == 50
+
+    def test_discount_group(self):
+        assert checkout_solution.checkout("STV") == 45
+
+    def test_discount_group(self):
+        assert checkout_solution.checkout("STXY") == 62
+
+    def test_discount_group(self):
+        assert checkout_solution.checkout("STZY") == 65
