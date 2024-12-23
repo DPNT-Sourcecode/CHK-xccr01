@@ -106,6 +106,3 @@ def calculate_F(F_items):
     if F_items == 0:
         return 0
     
-
-
-
