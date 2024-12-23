@@ -48,6 +48,8 @@ def checkout(skus):
     
 
     total += __calculate_multi_deal(len(re.findall("A", skus)), 50, 3, 130, 5, 200)
+    # total += __calculate_free_item(len(re.findall("B", skus)), len(re.findall("E", skus)))
+    # total += __calculate_()
     total += __calculate_multi_deal(len(re.findall("H", skus)), 10, 5, 45, 10, 80) #+ __calculate_free_item(B_items, E_items) + __calculate_F(F_items, 10, )
     return total
 

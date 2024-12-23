@@ -49,4 +49,4 @@ class TestSum(unittest.TestCase):
         assert checkout_solution.checkout("HHHHH") == 45
 
     def test_checkout_H6(self):
-        assert checkout_solution.checkout("HHHHHH") == 45
+        assert checkout_solution.checkout("HHHHHH") == 55
