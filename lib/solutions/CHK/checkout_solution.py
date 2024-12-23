@@ -114,4 +114,3 @@ def __calculate_F(items, cost, deal):
 
     return F_total
 
-
