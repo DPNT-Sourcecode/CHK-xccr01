@@ -7,43 +7,6 @@ def checkout(skus):
         return -1
     if re.search("[^A-Z]", skus) :
         return -1
-    total = 0
-    C_cost = 20
-    D_cost = 15
-    E_cost = 40
-
-    skus = skus.upper()
-    A_items = len(re.findall("A", skus))
-    B_items = len(re.findall("B", skus))
-    C_items = len(re.findall("C", skus))
-    D_items = len(re.findall("D", skus))
-    E_items = len(re.findall("E", skus))
-    F_items = len(re.findall("F", skus))
-
-    # calculate total cost of A including the special offers
-    # if items == 1:
-    #     A_total = A_cost
-    # elif items == 2:
-    #     A_total = A_cost * 2
-    # elif items%5 == 0:
-    #     A_total = items/5 * A_deal_5
-    # elif items%3 == 0:
-    #     A_total = items/3 * A_deal_3
-    # elif items == 4:
-    #     A_total = ((items - items%3)/3 * A_deal_3) +(items%3 * A_cost)
-    # else:
-    #     A_total = ((items - items%5)/5 * A_deal_5) +(items%5 * A_cost)
-
-    # #calculate effect of E on B
-    # if E_items >= 2:
-    #     E_items//2
-    #     B_items = B_items - E_items//2
-    # # calculate total cost of B including the special offers
-    # if B_items%2 == 0:
-    #     B_total = B_items/2 * B_deal
-    # else:
-    #     B_total = (B_items - 1)/2 * B_deal + B_cost
-
     
     
 
@@ -70,9 +33,9 @@ def checkout(skus):
     total += __calculate_bsogsof(len(re.findall("U", skus)), 4, len(re.findall("U", skus))) * 40
     total += __calculate_multi_deal(len(re.findall("V", skus)), 50, 2, 90, 3, 130)
     total += len(re.findall("W", skus)) * 20
-    total += len(re.findall("X", skus)) * 90
-    total += len(re.findall("Y", skus)) * 10
-    total += len(re.findall("Z", skus)) * 50
+    # total += len(re.findall("X", skus)) * 90
+    # total += len(re.findall("Y", skus)) * 10
+    # total += len(re.findall("Z", skus)) * 50
     return total
 
 def __calculate_multi_deal(items, reg_cost, deal1_ammount, deal1_cost, deal2_ammount, deal2_cost):
@@ -121,3 +84,17 @@ def __calculate_simple_deal(items, cost, deal, deal_cost):
 
     return total
 
+def __calculate_group_deal(items_bought, skus):
+    S_cost = 20
+    T_cost = 20
+    X_cost = 17
+    Y_cost = 20
+    Z_cost = 21
+
+    group_discount_items = len(re.findall("[STXYZ]", skus))
+    if group,group_discount_items < 5:
+        return 
+    elif items_bought%5:
+        items/bought
+            
+    
