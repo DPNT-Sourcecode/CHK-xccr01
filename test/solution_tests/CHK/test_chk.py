@@ -53,3 +53,6 @@ class TestSum(unittest.TestCase):
 
     def test_bsogsof(self):
         assert checkout_solution.checkout("BBB") == 75
+
+    def test_one_of_each(self):
+        assert checkout_solution.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ") == 965
