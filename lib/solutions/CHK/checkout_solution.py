@@ -58,7 +58,7 @@ def checkout(skus):
     total += len(re.findall("I", skus)) * 35
     total += len(re.findall("J", skus)) * 60
     total += __calculate_simple_deal(len(re.findall("K", skus)),80, 3, 150)
-    total += len(re.findall("l", skus)) * 90
+    total += len(re.findall("L", skus)) * 90
     total += __calculate_simple_deal(__calculate_bsogsof(len(re.findall("N", skus)), 3, len(re.findall("M", skus))), 15, 0, 0)
     total += len(re.findall("N", skus)) * 40
     total += len(re.findall("O", skus)) * 10
@@ -68,7 +68,7 @@ def checkout(skus):
     total += len(re.findall("S", skus)) * 30
     total += len(re.findall("T", skus)) * 20
     total += __calculate_bsogsof(len(re.findall("U", skus)), 4, len(re.findall("U", skus))) * 40
-    total +=  __calculate_multi_deal(len(re.findall("V", skus)), 50, 2, 90, 3, 130)
+    total += __calculate_multi_deal(len(re.findall("V", skus)), 50, 2, 90, 3, 130)
     total += len(re.findall("W", skus)) * 20
     total += len(re.findall("X", skus)) * 90
     total += len(re.findall("Y", skus)) * 10
@@ -119,4 +119,5 @@ def __calculate_simple_deal(items, cost, deal, deal_cost):
         return total
 
     return total
+
 
