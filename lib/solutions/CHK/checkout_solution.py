@@ -91,14 +91,33 @@ def __calculate_group_deal(skus):
     X_cost = 17
     Y_cost = 20
     Z_cost = 21
-    S_number = 0
-    T_number = 0
-    Y_number = 0
-    X_number = 0
-    Z_number = 0
+    S_number = len(re.findall("[S]", skus))
+    T_number = len(re.findall("[T]", skus))
+    Y_number = len(re.findall("[Y]", skus))
+    X_number = len(re.findall("[X]", skus))
+    Z_number = len(re.findall("[Z]", skus))
+    total_cost = 0
 
-    group_discount_items_total = re.findall("[STXYZ]", skus).sort()
-    return group_discount_items_total
+    total_number_items = len(re.findall("[STXYZ]", skus))
+    if total_number_items >= 3:
+        total_cost = total_number_items//3 * 45
+        if total_number_items%3 == 0:
+            return total_cost
+        elif total_number_items%3 == 1:
+            if X_number > 0:
+                total_cost += 17
+                return total_cost
+            elif Y_number > 0 or T_number > 0 or S_number > 0:
+                total_cost += 20
+                return total_cost
+            else:
+                total_cost += 21
+                return total_cost
+        elif total_number_items%3 == 2:
+            return 0
+    else:
+        return S_cost * S_number + T_cost * T_number + Y_cost * Y_number + X_cost * X_number + Z_cost * Z_number
+    return total_cost
 
     # group_discount_items_21 = len(re.findall("Z", skus))
     # if  group_discount_items_21 != 0:
@@ -115,7 +134,23 @@ def __calculate_group_deal(skus):
     #     (group_discount_items_total - group_discount_items_total%3)/3 * 45
     # elif group_discount_items_total - group_discount_items_21 > 0:
     #     return (group_discount_items_total - group_discount_items_21) + (group_discount_items_total - group_discount_items_total%3)/3 * 45
+    # get rid of z first
+    # get rid of s t and x
+    # then get rid of y 
 
+    # only matters if not %3 of total number of groups
+    # current ammount//3 * 45 + left over items
+    # new ammount = current_ammount - z_ammount
+    # new_ammount == 1
+
+    # new_ammount == 2
+    # else:
+    #     new_ammount -= 
+    # ammount = re.findall("[STXYZ]", skus)
+        
+    
+        
+    
         
             
     
