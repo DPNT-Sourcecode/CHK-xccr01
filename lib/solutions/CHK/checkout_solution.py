@@ -114,39 +114,26 @@ def __calculate_group_deal(skus):
                 total_cost += 21
                 return total_cost
         elif total_number_items%3 == 2:
-            return 0
+            if X_number >= 2:
+                total_cost += 17*2
+                return total_cost
+            elif X_number == 1:
+                total_cost += 17
+                if Y_number != 0 or T_number != 0 or S_number != 0:
+                    total_cost += 20
+                else:
+                    total_cost += 21
+                return total_cost
+            elif Y_number + T_number + S_number >= 2:
+                    total_cost += 20 * 2
+            elif Y_number + T_number + S_number ==1:
+                    total_cost += 20 + 21
+            else:
+                total_cost += 21 * 2
+                return total_cost
     else:
         return S_cost * S_number + T_cost * T_number + Y_cost * Y_number + X_cost * X_number + Z_cost * Z_number
     return total_cost
-
-    # group_discount_items_21 = len(re.findall("Z", skus))
-    # if  group_discount_items_21 != 0:
-    #     group_discount_items_total - group_discount_items_21
-    # elif len(re.findall("[STY]", skus)) != 0:
-    # elif len(re.findall("X", skus)) != 0:
-
-    # number_of_discounts = group_discount_items_total//3
-    # if group_discount_items_total == 0:
-    #     return 0
-    # elif group_discount_items_total < 3:
-    #     return S_cost * S_number + T_cost * T_number + Y_cost * Y_number + X_cost * X_number + Z_cost * Z_number
-    # elif group_discount_items_total%3 == 0:
-    #     (group_discount_items_total - group_discount_items_total%3)/3 * 45
-    # elif group_discount_items_total - group_discount_items_21 > 0:
-    #     return (group_discount_items_total - group_discount_items_21) + (group_discount_items_total - group_discount_items_total%3)/3 * 45
-    # get rid of z first
-    # get rid of s t and x
-    # then get rid of y 
-
-    # only matters if not %3 of total number of groups
-    # current ammount//3 * 45 + left over items
-    # new ammount = current_ammount - z_ammount
-    # new_ammount == 1
-
-    # new_ammount == 2
-    # else:
-    #     new_ammount -= 
-    # ammount = re.findall("[STXYZ]", skus)
         
     
         
@@ -154,3 +141,4 @@ def __calculate_group_deal(skus):
         
             
     
+
