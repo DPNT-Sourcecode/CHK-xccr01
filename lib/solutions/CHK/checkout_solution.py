@@ -104,10 +104,10 @@ def __calculate_group_deal(skus):
         if total_number_items%3 == 0:
             return total_cost
         elif total_number_items%3 == 1:
-            if X_number > 0:
+            if X_number != 0:
                 total_cost += 17
                 return total_cost
-            elif Y_number > 0 or T_number > 0 or S_number > 0:
+            elif Y_number != 0 or T_number != 0 or S_number != 0:
                 total_cost += 20
                 return total_cost
             else:
