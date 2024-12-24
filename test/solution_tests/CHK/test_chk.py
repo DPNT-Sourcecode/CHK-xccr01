@@ -92,4 +92,3 @@ class TestSum(unittest.TestCase):
     
     def test_discount_group4(self):
         assert checkout_solution.checkout("STZZZYX") == 107
-
